@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4 Colores</title>
+</head>
+<body>
+    <div id="blue" style="width: 200px; height: 200px; background-color: blue;"></div>
+    <div id="red" style="width: 200px; height: 200px; background-color: red;"></div>
+    <div id="green" style="width: 200px; height: 200px; background-color: green;"></div>
+    <div id="yellow" style="width: 200px; height: 200px; background-color: yellow;"></div>
+
+    <div id="key" style="width: 200px; height: 200px; background-color: white; border: 1px solid black; margin-top: 20px;"></div>
+
+    <script>
+        document.getElementById("blue").addEventListener("click", () => {
+            document.getElementById("blue").style.backgroundColor = "black";
+        });
+        document.getElementById("red").addEventListener("click", () => {
+            document.getElementById("red").style.backgroundColor = "black";
+        });
+        document.getElementById("green").addEventListener("click", () => {
+            document.getElementById("green").style.backgroundColor = "black";
+        });
+        document.getElementById("yellow").addEventListener("click", () => {
+            document.getElementById("yellow").style.backgroundColor = "black";
+        });
+
+        let colorKeyMap = {
+            'a': 'pink',
+            's': 'orange',
+            'd': 'lightblue',
+            'q': 'purple',
+            'w': 'gray',
+            'e': 'brown'
+        };
+
+        document.addEventListener('keydown', (event) => {
+            const keyDiv = document.getElementById("key");
+
+            if (colorKeyMap[event.key]) {
+                keyDiv.style.backgroundColor = colorKeyMap[event.key];
+                
+                if (['q', 'w', 'e'].includes(event.key)) {
+                    let newDiv = document.createElement("div");
+                    newDiv.style.width = "200px";
+                    newDiv.style.height = "200px";
+                    newDiv.style.backgroundColor = colorKeyMap[event.key];
+                    newDiv.style.marginTop = "20px";
+                    document.body.appendChild(newDiv);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
